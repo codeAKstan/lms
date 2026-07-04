@@ -33,8 +33,8 @@ export default function Header() {
     {
       label: "About us",
       dropdownItems: [
-        { label: "Mission & Vision", href: "/about#mission" },
-        { label: "Our Team", href: "/about#team" },
+        { label: "Mission & Vision", href: "/about" },
+        { label: "Our Team", href: "/our-team" },
       ],
     },
     {
@@ -63,7 +63,7 @@ export default function Header() {
   const mobileMenuItems = [
     { label: "Home", href: "/" },
     { label: "About us", href: "/about" },
-    { label: "Our team", href: "/about#team" },
+    { label: "Our team", href: "/our-team" },
     { label: "Research and Policy", href: "/our-work/research-policy" },
     { label: "Enterprise Development and Support", href: "/our-work/enterprise-development" },
     { label: "Environment and Climate Action", href: "/our-work/environment-climate-action" },
