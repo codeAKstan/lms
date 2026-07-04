@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import * as Icons from "lucide-react";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 import { getPublishedBlogs } from "@/actions/admin/blog";
 
@@ -44,73 +45,283 @@ export default function MarketingHomePage({ heroData, faqsData }: { heroData: He
     return (
         <div className="bg-[#f7f9fb] min-h-screen font-sans text-[#191c1e]">
             <HeroSection heroData={heroData} />
-            <FeaturedCoursesSection />
-            <PathwaysSection />
-            <SDGImpactSection />
-            <TestimonialsSection />
-            <BlogInsightsSection />
-            <FaqSection faqsData={faqsData} />
-            <CTABannerSection />
+            <DonateBannerSection />
+            <ImpactAtGlanceSection />
+            <CorePillarsSection />
+            <TextStreamSection />
+            {/* <FeaturedCoursesSection /> */}
+            {/* <PathwaysSection /> */}
+            {/* <SDGImpactSection /> */}
+            {/* <TestimonialsSection /> */}
+            {/* <BlogInsightsSection /> */}
+            {/* <FaqSection faqsData={faqsData} /> */}
+            {/* <CTABannerSection /> */}
         </div>
+    );
+}
+
+function DonateBannerSection() {
+    return (
+        <section className="bg-[#092963] pb-16 flex justify-center items-center">
+            <Link 
+                href="/donate" 
+                className="group relative overflow-hidden bg-[#2da5cf] hover:bg-[#2092bc] text-white text-[15px] font-bold py-3.5 px-10 rounded-2xl tracking-wider uppercase transition-all duration-200 flex items-center justify-center"
+            >
+                <span className="relative overflow-hidden inline-flex justify-center items-center">
+                    <span className="inline-block transition-all duration-500 ease-in-out transform group-hover:-translate-y-[150%] group-hover:rotate-[-10deg] origin-top-left">
+                        Donate
+                    </span>
+                    <span className="absolute inline-block transition-all duration-500 ease-in-out transform translate-y-[150%] rotate-[10deg] origin-bottom-left group-hover:translate-y-0 group-hover:rotate-0 whitespace-nowrap">
+                        Donate
+                    </span>
+                </span>
+            </Link>
+        </section>
+    );
+}
+
+function ImpactAtGlanceSection() {
+    return (
+        <section className="bg-white py-24">
+            <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+                {/* Title */}
+                <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6 }}
+                    className="text-[#2da5cf] text-3xl md:text-[38px] font-bold mb-14 tracking-tight"
+                >
+                    Impact at Glance
+                </motion.h2>
+
+                {/* Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {/* Card 1 */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="bg-[#f4c015] rounded-[2rem] p-10 flex flex-col items-center text-center text-white min-h-[360px] justify-between shadow-sm hover:shadow-md transition-shadow"
+                    >
+                        <div className="flex flex-col items-center">
+                            <Icons.Globe className="w-12 h-12 mb-6 text-white stroke-[1.5]" />
+                            <h3 className="text-2xl md:text-3xl font-extrabold leading-tight tracking-tight">
+                                40+ Clean<br />Energy Startups
+                            </h3>
+                        </div>
+                        <p className="text-white/95 text-[15px] font-medium leading-relaxed max-w-[240px] mt-4">
+                            Supported and incubated across Nigeria.
+                        </p>
+                    </motion.div>
+
+                    {/* Card 2 */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.6, delay: 0.25 }}
+                        className="bg-[#f4c015] rounded-[2rem] p-10 flex flex-col items-center text-center text-white min-h-[360px] justify-between shadow-sm hover:shadow-md transition-shadow"
+                    >
+                        <div className="flex flex-col items-center w-full">
+                            <Icons.Layout className="w-12 h-12 mb-6 text-white stroke-[1.5]" />
+                            <div className="flex flex-wrap justify-center gap-x-6 gap-y-1">
+                                <h3 className="text-2xl md:text-3xl font-extrabold leading-tight tracking-tight">
+                                    290+ Students
+                                </h3>
+                                <h3 className="text-2xl md:text-3xl font-extrabold leading-tight tracking-tight">
+                                    49+ Teachers
+                                </h3>
+                            </div>
+                        </div>
+                        <p className="text-white/95 text-[15px] font-medium leading-relaxed max-w-[280px] mt-4">
+                            Trained and engaged through our Schools and Sustainability Programme across Abuja, Aba, and Uyo.
+                        </p>
+                    </motion.div>
+
+                    {/* Card 3 */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                        className="bg-[#f4c015] rounded-[2rem] p-10 flex flex-col items-center text-center text-white min-h-[360px] justify-between shadow-sm hover:shadow-md transition-shadow"
+                    >
+                        <div className="flex flex-col items-center">
+                            <Icons.SwatchBook className="w-12 h-12 mb-6 text-white stroke-[1.5]" />
+                            <h3 className="text-2xl md:text-3xl font-extrabold leading-tight tracking-tight">
+                                500+ students,<br />women, and MSME
+                            </h3>
+                        </div>
+                        <p className="text-white/95 text-[15px] font-medium leading-relaxed max-w-[260px] mt-4">
+                            Trained to transition to and manage cleaner energy sources.
+                        </p>
+                    </motion.div>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function CorePillarsSection() {
+    return (
+        <section className="bg-white pb-24">
+            <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+                <div className="bg-[#092963] rounded-[2rem] p-8 md:p-14">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+                        {/* Image Column */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95, x: -30 }}
+                            whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            className="lg:col-span-6 relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md"
+                        >
+                            <Image
+                                src="/men-on-roof.jpeg"
+                                alt="Solar installation"
+                                fill
+                                className="object-cover"
+                            />
+                        </motion.div>
+
+                        {/* Content Column */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                            className="lg:col-span-6 text-white pl-0 lg:pl-6"
+                        >
+                            <h2 className="text-[#f4c015] text-3xl md:text-4xl font-extrabold mb-8 tracking-tight">
+                                Core Pillars
+                            </h2>
+                            <div className="flex flex-col gap-6">
+                                <div className="border-b border-white/20 pb-4">
+                                    <h3 className="text-lg md:text-xl font-bold tracking-wide">Pioneering Innovation</h3>
+                                </div>
+                                <div className="border-b border-white/20 pb-4">
+                                    <h3 className="text-lg md:text-xl font-bold tracking-wide">Evidence-based Integrity</h3>
+                                </div>
+                                <div className="border-b border-white/20 pb-4">
+                                    <h3 className="text-lg md:text-xl font-bold tracking-wide">Ecosystem Collaboration</h3>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function TextStreamSection() {
+    const words = [
+        { text: "Power.", color: "text-[#092963]" },
+        { text: "Lead.", color: "text-[#2da5cf]" },
+        { text: "Lead.", color: "text-[#092963]" },
+        { text: "Innovate.", color: "text-[#2da5cf]" },
+    ];
+
+    // Duplicate list of words enough to fill screen and create loop
+    const list = [...words, ...words, ...words, ...words];
+
+    return (
+        <section className="bg-white py-16 overflow-hidden relative w-full border-y border-gray-100/50">
+            {/* Left and Right gradient overlays to fade text in and out */}
+            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
+
+            <div className="w-full overflow-hidden flex">
+                <div className="flex gap-16 animate-marquee-custom whitespace-nowrap">
+                    {list.map((item, idx) => (
+                        <span
+                            key={idx}
+                            className={`text-5xl md:text-7xl font-extrabold tracking-tight ${item.color}`}
+                        >
+                            {item.text}
+                        </span>
+                    ))}
+                </div>
+                <div className="flex gap-16 animate-marquee-custom whitespace-nowrap" aria-hidden="true">
+                    {list.map((item, idx) => (
+                        <span
+                            key={`dup-${idx}`}
+                            className={`text-5xl md:text-7xl font-extrabold tracking-tight ${item.color}`}
+                        >
+                            {item.text}
+                        </span>
+                    ))}
+                </div>
+            </div>
+
+            {/* Injected style tag for the CSS animation */}
+            <style dangerouslySetInnerHTML={{
+                __html: `
+                @keyframes marqueeCustom {
+                    0% { transform: translate3d(0, 0, 0); }
+                    100% { transform: translate3d(-100%, 0, 0); }
+                }
+                .animate-marquee-custom {
+                    animation: marqueeCustom 35s linear infinite;
+                }
+            `}} />
+        </section>
     );
 }
 
 function HeroSection({ heroData }: { heroData: HeroData | null }) {
     return (
-        <section className="relative pt-24 pb-48 flex items-center justify-center">
-            {/* Background Image */}
-            <div className="absolute inset-0 z-0">
-                <Image
-                    src={heroData?.backgroundImage || "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2072&auto=format&fit=crop"}
-                    alt="Solar panels at sunset"
-                    fill
-                    className="object-cover"
-                    priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#00153e]/90 to-[#00153e]/40 mix-blend-multiply"></div>
-                <div className="absolute inset-0 bg-[#00153e]/30"></div>
-            </div>
-
-            <div className="container relative z-10 mx-auto px-6 md:px-12">
-                <div className="max-w-3xl">
-                    <div className="inline-flex items-center rounded-full bg-[#b1c5ff] text-[#00153e] px-3 py-1 text-xs font-bold uppercase tracking-wider mb-6">
-                        Pioneering Sustainability
-                    </div>
-                    <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                        {heroData?.title || "Africa's Climate Learning Platform"}
-                    </h1>
-                    <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl leading-relaxed">
-                        {heroData?.description || "Empowering the next generation of climate leaders with world-class education in clean technology, green finance, and sustainable policy."}
-                    </p>
-                    <div className="flex flex-wrap items-center gap-4">
-                        <Link href={heroData?.primaryBtnLink || "/register"} className="bg-[#ffcc00] hover:bg-[#e6b800] text-[#00153e] font-bold py-3 px-8 rounded-md transition-colors">
-                            {heroData?.primaryBtnText || "Start Learning"}
-                        </Link>
-                        <Link href={heroData?.secondaryBtnLink || "/learning-paths"} className="bg-transparent border border-white hover:bg-white/10 text-white font-bold py-3 px-8 rounded-md transition-colors">
-                            {heroData?.secondaryBtnText || "Explore Pathways"}
-                        </Link>
-                    </div>
+        <section className="relative pt-36 bg-white">
+            {/* Two Column Text Layout */}
+            <div className="container mx-auto px-6 md:px-12 max-w-7xl mb-12">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+                    {/* Left Column - Heading */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="lg:col-span-6"
+                    >
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#092963] leading-[1.1] tracking-tight">
+                            Powering Africa's<br />Energy Transition
+                        </h1>
+                    </motion.div>
+                    {/* Right Column - Description */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                        className="lg:col-span-6"
+                    >
+                        <p className="text-base md:text-lg text-[#092963]/90 leading-relaxed font-medium lg:pt-2">
+                            Clean Technology Hub creates pathways into clean energy innovation, expanding access to knowledge, networks, and resources needed to shape Nigeria's transition into sustainable energy, making it inclusive, equitable, and driven by local leadership.
+                        </p>
+                    </motion.div>
                 </div>
             </div>
 
-            {/* Overlapping Category Icons Row */}
-            <div className="absolute -bottom-16 left-0 right-0 z-20 px-6">
-                <div className="container mx-auto max-w-5xl">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                        {[
-                            { icon: Icons.Zap, label: "Renewable Energy" },
-                            { icon: Icons.Leaf, label: "Climate Policy" },
-                            { icon: Icons.Banknote, label: "Green Finance" },
-                            { icon: Icons.Globe, label: "Sustainability" },
-                        ].map((cat, i) => (
-                            <div key={i} className="bg-white rounded-xl shadow-[0_0_30px_rgba(9,41,98,0.12)] p-6 flex flex-col items-center justify-center text-center gap-4 transition-transform hover:-translate-y-1 cursor-pointer border border-gray-100">
-                                <div className="w-12 h-12 rounded-full bg-[#90efef] flex items-center justify-center text-[#006e6e]">
-                                    <cat.icon className="w-6 h-6" />
-                                </div>
-                                <span className="font-bold text-[#191c1e] text-sm">{cat.label}</span>
-                            </div>
-                        ))}
-                    </div>
+            {/* Overlapping Hero Image with Split Background */}
+            <div className="relative pb-16">
+                {/* Background color block at the bottom */}
+                <div className="absolute inset-0 top-[40%] bg-[#092963] z-0"></div>
+
+                <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 50, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
+                        className="relative w-full aspect-[16/7] overflow-hidden rounded-[2rem] shadow-xl"
+                    >
+                        <Image
+                            src="/hero.png"
+                            alt="Powering Africa's Energy Transition"
+                            fill
+                            className="object-cover"
+                            priority
+                        />
+                    </motion.div>
                 </div>
             </div>
         </section>
@@ -194,11 +405,11 @@ function FeaturedCoursesSection() {
                                 <Link href={`/courses/${course.slug}`} key={course.id} className="group">
                                     <div className="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
                                         <div className="relative h-48 w-full overflow-hidden">
-                                            <Image 
-                                                src={course.thumbnail || mockupThumbnails[index % mockupThumbnails.length]} 
-                                                fill 
-                                                className="object-cover group-hover:scale-105 transition-transform duration-500" 
-                                                alt={course.title} 
+                                            <Image
+                                                src={course.thumbnail || mockupThumbnails[index % mockupThumbnails.length]}
+                                                fill
+                                                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                                alt={course.title}
                                             />
                                         </div>
                                         <div className="p-6 flex flex-col flex-grow">
@@ -214,11 +425,11 @@ function FeaturedCoursesSection() {
                                             <p className="text-[#444650] text-sm mb-6 flex-grow line-clamp-2">{course.description}</p>
                                             <div className="flex items-center gap-3 mt-auto">
                                                 <div className="w-8 h-8 rounded-full bg-gray-200 overflow-hidden relative border border-gray-100">
-                                                    <Image 
-                                                        src={course.instructor?.avatar || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop"} 
-                                                        fill 
-                                                        className="object-cover" 
-                                                        alt="Instructor" 
+                                                    <Image
+                                                        src={course.instructor?.avatar || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop"}
+                                                        fill
+                                                        className="object-cover"
+                                                        alt="Instructor"
                                                     />
                                                 </div>
                                                 <span className="text-xs font-semibold text-[#191c1e]">{course.instructor?.name || "Instructor"}</span>
@@ -240,17 +451,17 @@ function PathwaysSection() {
         <section className="py-20 bg-[#f7f9fb]">
             <div className="container mx-auto px-6 md:px-12 max-w-7xl">
                 <h2 className="text-center text-sm font-bold text-[#444650] uppercase tracking-wider mb-10">Professional Pathways</h2>
-                
+
                 <div className="grid md:grid-cols-2 gap-8">
                     {/* Card 1 */}
                     <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-80">
                         <Image src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop" fill className="object-cover group-hover:scale-105 transition-transform duration-700" alt="Corporate Leader" />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#00153e]/90 via-[#00153e]/60 to-transparent"></div>
-                        
+
                         <div className="absolute inset-0 p-8 flex flex-col justify-end">
                             <h3 className="text-2xl font-bold text-white mb-3">ESG Corporate Leader</h3>
                             <p className="text-white/80 text-sm mb-6 max-w-md">A rigorous track for executives aiming to integrate ESG principles into corporate strategy and operations.</p>
-                            
+
                             <div className="flex items-center justify-between">
                                 <div className="flex gap-2">
                                     <span className="bg-white/20 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-sm uppercase tracking-wider border border-white/30">8 Courses</span>
@@ -265,11 +476,11 @@ function PathwaysSection() {
                     <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-80">
                         <Image src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop" fill className="object-cover group-hover:scale-105 transition-transform duration-700" alt="Tech Expert" />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#006a6a]/90 via-[#006a6a]/60 to-transparent"></div>
-                        
+
                         <div className="absolute inset-0 p-8 flex flex-col justify-end">
                             <h3 className="text-2xl font-bold text-white mb-3">Renewable Tech Expert</h3>
                             <p className="text-white/80 text-sm mb-6 max-w-md">Deep dive into engineering, project management, and deployment of clean energy infrastructure across the continent.</p>
-                            
+
                             <div className="flex items-center justify-between">
                                 <div className="flex gap-2">
                                     <span className="bg-white/20 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-sm uppercase tracking-wider border border-white/30">12 Courses</span>
@@ -296,7 +507,7 @@ function SDGImpactSection() {
                         <p className="text-[#b1c5ff] text-base mb-12 max-w-md">
                             Our curriculum is directly mapped to the UN Sustainable Development Goals, ensuring every learner contributes to a better future.
                         </p>
-                        
+
                         {/* Climate Action Card */}
                         <div className="bg-[#092962] rounded-2xl p-8 border border-white/5 relative overflow-hidden">
                             <div className="w-10 h-10 bg-[#4CAF50] rounded-sm flex items-center justify-center font-bold text-white mb-6">13</div>
@@ -304,7 +515,7 @@ function SDGImpactSection() {
                             <p className="text-white/70 text-sm leading-relaxed mb-12 relative z-10">
                                 We focus on urgent action to combat climate change and its impacts through education and local innovation deployment.
                             </p>
-                            
+
                             {/* Decorative blocks */}
                             <div className="absolute bottom-0 left-0 right-0 h-12 flex items-end px-8 gap-2 opacity-80">
                                 <div className="h-6 w-1/4 bg-white/10 rounded-t-sm"></div>
@@ -362,11 +573,11 @@ function TestimonialsSection() {
         <section className="py-24 bg-[#f7f9fb]">
             <div className="container mx-auto px-6 md:px-12 max-w-7xl">
                 <h2 className="text-center text-sm font-bold text-[#444650] uppercase tracking-wider mb-12">Voices of the Hub</h2>
-                
+
                 <div className="grid md:grid-cols-3 gap-6">
                     <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 flex flex-col">
                         <div className="flex gap-1 mb-6">
-                            {[1,2,3,4,5].map(i => <Icons.Star key={i} className="w-4 h-4 fill-[#ffcc00] text-[#ffcc00]" />)}
+                            {[1, 2, 3, 4, 5].map(i => <Icons.Star key={i} className="w-4 h-4 fill-[#ffcc00] text-[#ffcc00]" />)}
                         </div>
                         <p className="text-[#444650] text-sm italic leading-relaxed mb-8 flex-grow">
                             &ldquo;The Green Finance course changed how we approach project funding. The knowledge is practical and immediately applicable to our market.&rdquo;
@@ -384,7 +595,7 @@ function TestimonialsSection() {
 
                     <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 flex flex-col">
                         <div className="flex gap-1 mb-6">
-                            {[1,2,3,4,5].map(i => <Icons.Star key={i} className="w-4 h-4 fill-[#ffcc00] text-[#ffcc00]" />)}
+                            {[1, 2, 3, 4, 5].map(i => <Icons.Star key={i} className="w-4 h-4 fill-[#ffcc00] text-[#ffcc00]" />)}
                         </div>
                         <p className="text-[#444650] text-sm italic leading-relaxed mb-8 flex-grow">
                             &ldquo;EcoLearn is a bridge between theory and the reality of deploying clean energy in sub-Saharan Africa. Truly world-class content.&rdquo;
@@ -402,7 +613,7 @@ function TestimonialsSection() {
 
                     <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 flex flex-col">
                         <div className="flex gap-1 mb-6">
-                            {[1,2,3,4,5].map(i => <Icons.Star key={i} className="w-4 h-4 fill-[#ffcc00] text-[#ffcc00]" />)}
+                            {[1, 2, 3, 4, 5].map(i => <Icons.Star key={i} className="w-4 h-4 fill-[#ffcc00] text-[#ffcc00]" />)}
                         </div>
                         <p className="text-[#444650] text-sm italic leading-relaxed mb-8 flex-grow">
                             &ldquo;As a policymaker, I found the data-driven approach of the Climate Policy track invaluable for drafting our new environmental bill.&rdquo;
@@ -537,13 +748,13 @@ function FaqSection({ faqsData }: { faqsData: FaqData[] }) {
                     <h2 className="text-2xl font-bold text-[#191c1e] mb-4">Frequently Asked Questions</h2>
                     <p className="text-sm text-[#444650]">Find answers to common questions about learning with EcoLearn Africa.</p>
                 </div>
-                
+
                 <div className="space-y-3">
                     {faqsData && faqsData.length > 0 ? faqsData.map((faq, index) => {
                         const isOpen = openIndex === index;
                         return (
                             <div key={index} className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm transition-all">
-                                <button 
+                                <button
                                     className="w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none"
                                     onClick={() => setOpenIndex(isOpen ? null : index)}
                                 >
@@ -582,11 +793,11 @@ function CTABannerSection() {
                         <p className="text-[#b1c5ff] text-base mb-10">
                             Join thousands of professionals across the continent building a sustainable future. Register today and get early access to our next cohort.
                         </p>
-                        
+
                         <form className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto mb-4" onSubmit={(e) => e.preventDefault()}>
-                            <input 
-                                type="email" 
-                                placeholder="Enter your email" 
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
                                 className="flex-1 bg-white rounded-md px-4 py-3 text-[#191c1e] text-sm outline-none focus:ring-2 focus:ring-[#ffcc00]"
                                 required
                             />
